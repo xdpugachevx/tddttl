@@ -1,0 +1,4 @@
+TDD learning project.
+Class can fetch twitter user's timeline and use file cache.
+
+Twitter REST API method: https://dev.twitter.com/docs/api/1/get/statuses/user_timeline
