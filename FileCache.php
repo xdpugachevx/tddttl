@@ -14,13 +14,15 @@ class FileCache implements CacheInterface {
     }
 
     public function save($id, $data) {
-        $f = fopen($this->cacheDir . '/' . $id . '.dat', 'w');
+        $filename = $this->_createFilename($id);
+
+        $f = fopen($filename, 'w');
         fwrite($f, $data);
         fclose($f);
     }
 
     public function load($id) {
-        $filename = $this->cacheDir . '/' . $id . '.dat';
+        $filename = $this->_createFilename($id);
 
         if (!file_exists($filename)) {
             return false;
@@ -31,6 +33,11 @@ class FileCache implements CacheInterface {
         }
 
         return file_get_contents($filename);
+    }
+
+
+    protected function _createFilename($id) {
+        return $this->cacheDir . '/' . $id . '.dat';
     }
 
 }
