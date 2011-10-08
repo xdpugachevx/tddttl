@@ -13,7 +13,7 @@ class Twitter {
     /**
      * @var string
      */
-    protected $methodUrl = 'https://api.twitter.com/1/statuses/user_timeline.json';
+    protected $methodUrl = 'http://api.twitter.com/1/statuses/user_timeline.json';
 
     /**
      * @var CacheInterface

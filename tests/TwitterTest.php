@@ -12,7 +12,7 @@ class TwitterTest extends PHPUnit_Framework_TestCase {
         $httpClient
                 ->expects($this->once())
                 ->method('get')
-                ->with($this->equalTo('https://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $nickname));
+                ->with($this->equalTo('http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $nickname));
 
         $twitter->getStatuses($nickname);
     }
@@ -22,7 +22,7 @@ class TwitterTest extends PHPUnit_Framework_TestCase {
         $httpClient = $this->getMock('HttpClientInterface');
         $nickname = 'test_nick';
         $twitter = new Twitter($httpClient);
-        $url = 'https://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $nickname;
+        $url = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $nickname;
         $urlMd5 = md5($url);
 
         $resultCached = array('status1', 'status2', 'status3');
