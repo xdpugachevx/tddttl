@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author Denis Pugachev <xstupidkidzx@gmail.com>
+ */
+
 require_once('HttpClientInterface.php');
 
 class SimpleHttp implements HttpClientInterface {

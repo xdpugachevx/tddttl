@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author Denis Pugachev <xstupidkidzx@gmail.com>
+ */
+
 interface HttpClientInterface {
     /**
      * @abstract

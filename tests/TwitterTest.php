@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author Denis Pugachev <xstupidkidzx@gmail.com>
+ */
+
 require_once('../Twitter.php');
 
 class TwitterTest extends PHPUnit_Framework_TestCase {

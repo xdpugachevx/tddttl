@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author Denis Pugachev <xstupidkidzx@gmail.com>
+ */
+
 require_once('../FileCache.php');
  
 class FileCacheTest extends PHPUnit_Framework_TestCase {
