@@ -4,23 +4,44 @@ require_once('CacheInterface.php');
 
 class FileCache implements CacheInterface {
 
+    /**
+     * @var string
+     */
     protected $cacheDir;
 
+    /**
+     * @var int
+     */
     protected $lifetime;
 
+    /**
+     * @param string $cacheDir
+     * @param int $lifetime
+     */
     public function __construct($cacheDir = '.', $lifetime = 3600) {
         $this->cacheDir = $cacheDir;
         $this->lifetime = $lifetime;
     }
 
+    /**
+     * @param string $id
+     * @param mixed $data
+     * @return bool
+     */
     public function save($id, $data) {
         $filename = $this->_createFilename($id);
 
         $f = fopen($filename, 'w');
-        fwrite($f, $data);
+        fwrite($f, serialize($data));
         fclose($f);
+
+        return true;
     }
 
+    /**
+     * @param string $id
+     * @return mixed
+     */
     public function load($id) {
         $filename = $this->_createFilename($id);
 
@@ -32,7 +53,7 @@ class FileCache implements CacheInterface {
             return false;
         }
 
-        return file_get_contents($filename);
+        return unserialize(file_get_contents($filename));
     }
 
 
